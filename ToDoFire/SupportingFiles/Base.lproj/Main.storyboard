@@ -74,7 +74,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="loginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Sc-eb-0kJ"/>
-                                                    <segue destination="EfZ-kI-IYx" kind="show" identifier="tasksSegue" id="AK5-YH-yp6"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="up0-zh-3sB">
@@ -120,6 +119,7 @@
                         <outlet property="emailTextField" destination="PBw-TC-tFO" id="Zod-HV-K4y"/>
                         <outlet property="passwordTextField" destination="OJs-8v-286" id="Xmz-vn-wqH"/>
                         <outlet property="warnLabel" destination="1sg-Qh-4Xq" id="WbH-St-isQ"/>
+                        <segue destination="EfZ-kI-IYx" kind="show" identifier="tasksSegue" id="ruK-HV-iJJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -129,13 +129,13 @@
         <!--Tasks-->
         <scene sceneID="sfH-aY-gYi">
             <objects>
-                <viewController id="uQz-1z-hTY" customClass="TasksViewController" customModule="ToDoFire" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController interfaceStyle="light" id="uQz-1z-hTY" customClass="TasksViewController" customModule="ToDoFire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cab-8Y-43O">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yGm-MK-eCK">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <color key="backgroundColor" red="0.46913748979999997" green="0.83596032860000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="separatorColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -165,6 +165,11 @@
                         <viewLayoutGuide key="safeArea" id="5E3-VI-ob2"/>
                     </view>
                     <navigationItem key="navigationItem" title="Tasks" id="Pba-go-HX2">
+                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="lM9-2a-9jv">
+                            <connections>
+                                <action selector="signOut:" destination="uQz-1z-hTY" id="Nes-bd-c7e"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="6oV-dF-eY3">
                             <connections>
                                 <action selector="addTapped:" destination="uQz-1z-hTY" id="Wgp-jC-G7z"/>
@@ -182,14 +187,18 @@
         <!--Navigation Controller-->
         <scene sceneID="30a-Mh-Y5q">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EfZ-kI-IYx" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="EfZ-kI-IYx" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FP3-8X-Imv"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xpV-mo-6ds">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="idS-3X-aVz">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="uQz-1z-hTY" kind="relationship" relationship="rootViewController" id="rlb-XA-vAh"/>
                     </connections>
